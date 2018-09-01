@@ -1,0 +1,74 @@
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	height: 100%;
+	font-family: 'Microsoft JhengHei';
+}
+
+#header {
+	padding: 12px 0;
+	min-height: 44px;
+	background: #1fccff;
+	border-bottom: 1px solid #54a8f2;
+}
+
+#title {
+	color: #fff;
+	margin: 0;
+}
+
+#container {
+	height: 94%;
+	position: relative;
+}
+
+#searchDiv {
+	position: absolute;
+	top: 24px;
+	z-index: 99;
+}
+
+#recBtn {
+	background-color: #1fccff;
+}
+
+#searchDiv #recText {
+	cursor: default;
+	background-color: #fff;
+}
+
+#map {
+	width: 100%;
+	height: 100%;
+}
+
+#infoWindowContent div {
+	font-size: 20px;
+	padding: 3px 0px;
+	color: #1fccff;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+	#searchDiv {
+		left: 1%;
+		width: 98%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#searchDiv {
+		left: 30%;
+		width: 40%;
+	}
+}
+
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+	#searchDiv {
+		left: 18%;
+		width: 64%;
+	}
+}

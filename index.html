@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html" charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/taiwan.png">
+  <title>語音查台灣天氣</title>
+</head>
+
+<body>
+  <nav id="header">
+    <h1 id="title" class="text-center">語音查台灣天氣</h1>
+  </nav>
+  <div id="container">
+    <div id="searchDiv">
+      <div class="input-group col-md-12">
+        <input id="recText" type="text" class="form-control input-lg" placeholder="請說出台灣城市名，例如:台北市中山區" disabled />
+        <span class="input-group-btn">
+          <button id="recBtn" class="btn btn-info btn-lg" type="button">
+            <i id="recIcon" class="glyphicon glyphicon-volume-up"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div id="map"></div>
+  </div>
+</body>
+
+</html>
+
+<script src="js/speech.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/controller.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASDVeTgYZlFwwA5jLXIRdMB37RrwZsggs&callback=initMap"
+  async defer></script>
+
+<script>
+  var map, marker, infoWindow, center;
+
+  function initMap() {
+    center = {
+      lat: 25.0462476,
+      lng: 121.5183525
+    };
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: center,
+      zoom: 12,
+      disableDefaultUI: true
+    });
+
+    marker = new google.maps.Marker();
+
+    infoWindow = new google.maps.InfoWindow({
+      content: ''
+    });
+  }
+
+  function resetMap() {
+    map.setCenter(center);
+    map.setZoom(12);
+    infoWindow.close();
+    marker.setVisible(false);
+  }
+</script>
